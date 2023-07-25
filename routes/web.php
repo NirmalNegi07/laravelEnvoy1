@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+// use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// routes/web.php
+Route::get('/', 'EnvoyController@index')->name('welcome');
+Route::post('/trigger-envoy', 'EnvoyController@triggerEnvoy')->name('trigger.envoy');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/setup-uat-project_a', function () {
-    Artisan::call('php vendor/bin/envoy run setup-uat-project_a');
-    return response()->json(['message' => 'UAT setup for Project A started']);
-});
+
+
+// Route::get('/setup-uat-project_a', function () {
+//     Artisan::call('php vendor/bin/envoy run setup-uat-project_a');
+//     return response()->json(['message' => 'UAT setup for Project A started']);
+// });

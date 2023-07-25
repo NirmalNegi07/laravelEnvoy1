@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "envoy": "php vendor/bin/envoy run setup-uat-project_a"
     },
     "devDependencies": {
         "axios": "^1.1.2",
