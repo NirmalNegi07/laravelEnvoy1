@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to GitHub Container Registry
-        run: echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u NirmalNegi07 --password-stdin
+        run: docker login ghcr.io -u NirmalNegi07 -p ${{ secrets.GHCR_PAT }}
+
 
       - name: Build Docker Image
         run: docker build -t because-ml-engine:v0.06 . --label "org.opencontainers.image.source=https://github.com/nirmalnegi07/laravelenvoy" --label "org.opencontainers.image.description=Test container image"
